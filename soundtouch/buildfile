@@ -4,6 +4,7 @@ cxx.poptions = \
     "-DSOUNDTOUCH_FLOAT_SAMPLES"
 
 ./: lib{soundtouch}: libul{soundtouch}: \
+    hxx{*} \
     source/SoundTouch/{hxx cxx}{AAFilter FIRFilter InterpolateCubic InterpolateLinear InterpolateShannon PeakFinder RateTransposer TDStretch} \
     source/SoundTouch/cxx{BPMDetect FIFOSampleBuffer SoundTouch cpu_detect_x86 mmx_optimized sse_optimized} \
     source/SoundTouch/hxx{cpu_detect}
