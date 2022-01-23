@@ -1,0 +1,6 @@
+$out_root/
+{
+  include soundtouch/
+}
+
+export $out_root/soundtouch/$import.target

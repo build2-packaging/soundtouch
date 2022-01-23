@@ -1,0 +1,7 @@
+project = soundtouch
+
+using version
+using config
+using test
+using install
+using dist

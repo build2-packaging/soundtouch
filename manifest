@@ -1,0 +1,10 @@
+: 1
+name: soundtouch
+version: 2.3.1-a.0.z
+summary: SoundTouch is an open-source audio processing library for changing the Tempo, Pitch and Playback Rates of audio streams or audio files.
+license: LGPL-2.1-only
+description-file: upstream/readme.md
+url: https://www.surina.net/soundtouch/
+src-url: https://codeberg.org/soundtouch/soundtouch
+depends: * build2 >= 0.14.0
+depends: * bpkg >= 0.14.0

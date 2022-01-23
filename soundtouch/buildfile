@@ -1,0 +1,28 @@
+cxx.poptions = \
+    "-I$src_root" \
+    "-I$src_base" \
+    "-DSOUNDTOUCH_FLOAT_SAMPLES"
+
+./: lib{soundtouch}: libul{soundtouch}: \
+    source/SoundTouch/{hxx cxx}{AAFilter FIRFilter InterpolateCubic InterpolateLinear InterpolateShannon PeakFinder RateTransposer TDStretch} \
+    source/SoundTouch/cxx{BPMDetect FIFOSampleBuffer SoundTouch cpu_detect_x86 mmx_optimized sse_optimized} \
+    source/SoundTouch/hxx{cpu_detect}
+{
+    cxx.export.poptions += "-I$src_base"
+}
+
+lib{soundtouch}: def{soundtouch}: include = ($cxx.target.system == 'win32-msvc')
+def{soundtouch}: libul{soundtouch}
+
+if ($cxx.target.system == 'mingw32')
+  cxx.loptions += -Wl,--export-all-symbols
+
+hxx{*}:
+{
+    install = include/soundtouch/
+    install.subdirs = false
+}
+
+source/hxx{**}: install = false
+
+./: exe{soundstretch}: source/SoundStretch/{hxx cxx}{*} lib{soundtouch}
