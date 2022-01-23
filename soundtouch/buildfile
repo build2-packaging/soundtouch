@@ -9,7 +9,7 @@ cxx.poptions = \
     source/SoundTouch/cxx{BPMDetect FIFOSampleBuffer SoundTouch cpu_detect_x86 mmx_optimized sse_optimized} \
     source/SoundTouch/hxx{cpu_detect}
 {
-    cxx.export.poptions += "-I$src_base"
+    cxx.export.poptions += "-I$src_root"
 }
 
 lib{soundtouch}: def{soundtouch}: include = ($cxx.target.system == 'win32-msvc')
